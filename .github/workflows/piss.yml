@@ -1,0 +1,21 @@
+name: P.I.S.S (Bluesky → Discord)
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"  # every 10 minutes
+jobs:
+  run-piss:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run P.I.S.S
+        run: python piss.py
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
