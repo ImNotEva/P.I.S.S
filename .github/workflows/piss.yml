@@ -1,4 +1,4 @@
-name: P.I.S.S (Bluesky → Discord)
+name: P.I.S.S (Bluesky → Discord, public)
 
 on:
   schedule:
